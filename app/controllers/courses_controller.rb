@@ -27,7 +27,7 @@ class CoursesController < ApplicationController
   end
 
   def update
-    id = params.fetch("path_id")
+    the_id = params.fetch("path_id")
     @course = Course.where({ :id => the_id }).at(0)
 
     @course.title = params.fetch("query_title")
@@ -49,5 +49,6 @@ class CoursesController < ApplicationController
     @course.destroy
 
     redirect_to("/courses", { :notice => "Course deleted successfully."} )
+
   end
 end
